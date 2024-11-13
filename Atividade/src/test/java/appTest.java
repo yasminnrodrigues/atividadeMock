@@ -21,23 +21,24 @@ public class AppTest {
 
     @Test
     public void SalvarImagemCorretamente() {
-        Product product = new Product(1); // Crie uma instância real do produto
+        Product product = new Product(1);
         application.append(product);
-        Mockito.verify(service, Mockito.times(1)).save(Mockito.eq(product)); 
+        Mockito.verify(service, Mockito.times(1)).save(Mockito.eq(product));
     }
 
     @Test
     public void DeletarImagemCorretamente() {
-        int productId = 1; // ID específico
+        int productId = 1;
         application.remove(productId);
-        Mockito.verify(service, Mockito.times(1)).remove(Mockito.eq(productId)); 
+        Mockito.verify(service, Mockito.times(1)).remove(Mockito.eq(productId));
     }
 
     @Test
     public void AtualizarImagemCorretamente() {
-        Product product = new Product(); // Crie uma instância real do produto
-        int productId = 1; // ID específico
+        Product product = new Product(1);
+        int productId = 1;
         application.update(productId, product);
-        Mockito.verify(service, Mockito.times(1)).update(Mockito.eq(product)); 
+
+        Mockito.verify(service, Mockito.times(1)).update(Mockito.eq(product));
     }
 }
